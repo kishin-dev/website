@@ -1,28 +1,53 @@
 # Kishin
 
-The home of every Kishin project: servers, plugins, websites and tools.
-Plain HTML, CSS and JavaScript - no build step. Hosted free on Vercel.
+The home of every Kishin project: the story, the projects and their documentation.
+Static site: HTML + Tailwind CSS + a little JavaScript. No server needed.
 
-## Adding or changing a project
+```
+index.html            home: story, projects, docs teaser, the server ("The Realm")
+project.html          one project: project.html?p=<id>
+docs.html             documentation: docs.html?p=<id>&page=<page>
+assets/js/data.js     <- the story chapters and every project (edit this)
+assets/app.css        built Tailwind CSS (generated - don't edit by hand)
+src/input.css         Tailwind source: theme colours, fonts, effects
+docs/<project>/       Markdown docs + _index.json (sidebar order)
+tools/gen_core_docs.py  generates the Kishin Core reference pages from the plugin
+```
 
-Everything is in `assets/projects.js`. To add a project, copy one entry, give it a new `id`
-and fill it in:
+## Editing text
 
-| Field | What |
-|---|---|
-| `id` | Short name for the link: `project.html?p=<id>` |
-| `name`, `icon`, `summary` | What the card shows (icon = one character or emoji) |
-| `type` | `Server`, `Plugin`, `Website`, `Tool`... - the filter buttons are made from these |
-| `status` | `live`, `beta`, `dev` or `soon` - the coloured badge |
-| `about`, `features` | Paragraphs and bullet points on the project page |
-| `links` | Buttons: `{ label, url, primary: true }`; `{ label, copy: "ip" }` copies text; no `url` = greyed out |
-| `server` | A Minecraft address - shows live online/offline and the player count |
-| `featured` | `true` = the big card at the top of the home page (one project) |
+- **Story and projects:** `assets/js/data.js`. A new project = a new entry; set `docs: true` once it has docs.
+- **Docs:** write Markdown in `docs/<project>/`, then add the page to `docs/<project>/_index.json`:
+  ```json
+  { "id": "my-page", "title": "My page", "file": "my-page.md" }
+  ```
+  Link between pages with `[Pets](?p=core&page=pets)`.
 
-`KISHIN_SITE` at the bottom holds the Discord link, the tagline and the About text.
+## Changing the design (Tailwind)
 
-## Deploy
+The site uses Tailwind CSS v4. `assets/app.css` is already built, so the site works without any build step.
+Only when you add or change Tailwind classes, rebuild it:
 
-1. New GitHub repository (e.g. `kishin`), upload every file and the `assets` folder.
-2. vercel.com -> Add New -> Project -> import it. Framework preset: **Other**, no build command.
-3. Deploy. It's live at `https://<project-name>.vercel.app`. Every commit goes live automatically.
+```
+npm install          # once
+npm run build        # rebuilds assets/app.css
+npm run watch        # rebuilds on every save while you work
+```
+
+## Kishin Core reference docs
+
+Commands, permissions and the config file pages are generated from the plugin. With the plugin repo next to
+this one (`../Kishin`), run:
+
+```
+pip install pyyaml   # once
+npm run docs
+```
+
+It only rewrites the generated pages and the "Reference" / "Config files" sections of `_index.json`;
+hand-written pages are never touched.
+
+## Hosting (Cloudflare Pages)
+
+Connect this repository in Cloudflare Pages: Framework preset **None**, build command **empty**,
+build output directory **`/`**. Every push goes live automatically.
