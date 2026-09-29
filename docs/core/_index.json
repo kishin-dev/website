@@ -1,0 +1,242 @@
+{
+  "title": "Kishin Core",
+  "sections": [
+    {
+      "title": "Getting started",
+      "pages": [
+        {
+          "id": "introduction",
+          "title": "Introduction",
+          "file": "introduction.md"
+        },
+        {
+          "id": "installation",
+          "title": "Installation",
+          "file": "installation.md"
+        },
+        {
+          "id": "first-setup",
+          "title": "First setup",
+          "file": "first-setup.md"
+        }
+      ]
+    },
+    {
+      "title": "Features",
+      "pages": [
+        {
+          "id": "islands",
+          "title": "Islands",
+          "file": "islands.md"
+        },
+        {
+          "id": "pets",
+          "title": "Pets",
+          "file": "pets.md"
+        },
+        {
+          "id": "crates-rewards",
+          "title": "Crates & rewards",
+          "file": "crates-rewards.md"
+        },
+        {
+          "id": "bosses",
+          "title": "World bosses",
+          "file": "bosses.md"
+        },
+        {
+          "id": "minions-generators",
+          "title": "Minions & generators",
+          "file": "minions-generators.md"
+        },
+        {
+          "id": "progression",
+          "title": "Skills, collections & enchants",
+          "file": "progression.md"
+        },
+        {
+          "id": "economy",
+          "title": "Economy & trading",
+          "file": "economy.md"
+        },
+        {
+          "id": "events-chat",
+          "title": "Events, chat games & announcements",
+          "file": "events-chat.md"
+        },
+        {
+          "id": "scoreboard-tab",
+          "title": "Scoreboard & tab list",
+          "file": "scoreboard-tab.md"
+        },
+        {
+          "id": "store",
+          "title": "Store (/buy)",
+          "file": "store.md"
+        },
+        {
+          "id": "ranks",
+          "title": "Ranks & permissions",
+          "file": "ranks.md"
+        },
+        {
+          "id": "holograms-npcs",
+          "title": "Holograms & NPCs",
+          "file": "holograms-npcs.md"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "generated": true,
+      "pages": [
+        {
+          "id": "commands",
+          "title": "Commands",
+          "file": "commands.md"
+        },
+        {
+          "id": "permissions",
+          "title": "Permissions",
+          "file": "permissions.md"
+        },
+        {
+          "id": "placeholders",
+          "title": "Placeholders",
+          "file": "placeholders.md"
+        }
+      ]
+    },
+    {
+      "title": "Config files",
+      "generated": true,
+      "pages": [
+        {
+          "id": "config-config",
+          "title": "config.yml",
+          "file": "config/config.md"
+        },
+        {
+          "id": "config-ranks",
+          "title": "ranks.yml",
+          "file": "config/ranks.md"
+        },
+        {
+          "id": "config-pets",
+          "title": "pets.yml",
+          "file": "config/pets.md"
+        },
+        {
+          "id": "config-crates",
+          "title": "crates.yml",
+          "file": "config/crates.md"
+        },
+        {
+          "id": "config-bosses",
+          "title": "bosses.yml",
+          "file": "config/bosses.md"
+        },
+        {
+          "id": "config-store",
+          "title": "store.yml",
+          "file": "config/store.md"
+        },
+        {
+          "id": "config-scoreboard",
+          "title": "scoreboard.yml",
+          "file": "config/scoreboard.md"
+        },
+        {
+          "id": "config-tab",
+          "title": "tab.yml",
+          "file": "config/tab.md"
+        },
+        {
+          "id": "config-minions",
+          "title": "minions.yml",
+          "file": "config/minions.md"
+        },
+        {
+          "id": "config-generators",
+          "title": "generators.yml",
+          "file": "config/generators.md"
+        },
+        {
+          "id": "config-skills",
+          "title": "skills.yml",
+          "file": "config/skills.md"
+        },
+        {
+          "id": "config-collections",
+          "title": "collections.yml",
+          "file": "config/collections.md"
+        },
+        {
+          "id": "config-enchants",
+          "title": "enchants.yml",
+          "file": "config/enchants.md"
+        },
+        {
+          "id": "config-events",
+          "title": "events.yml",
+          "file": "config/events.md"
+        },
+        {
+          "id": "config-chatgames",
+          "title": "chatgames.yml",
+          "file": "config/chatgames.md"
+        },
+        {
+          "id": "config-announcements",
+          "title": "announcements.yml",
+          "file": "config/announcements.md"
+        },
+        {
+          "id": "config-battlepass",
+          "title": "battlepass.yml",
+          "file": "config/battlepass.md"
+        },
+        {
+          "id": "config-daily",
+          "title": "daily.yml",
+          "file": "config/daily.md"
+        },
+        {
+          "id": "config-challenges",
+          "title": "challenges.yml",
+          "file": "config/challenges.md"
+        },
+        {
+          "id": "config-missions",
+          "title": "missions.yml",
+          "file": "config/missions.md"
+        },
+        {
+          "id": "config-tutorial",
+          "title": "tutorial.yml",
+          "file": "config/tutorial.md"
+        },
+        {
+          "id": "config-shop",
+          "title": "shop.yml",
+          "file": "config/shop.md"
+        },
+        {
+          "id": "config-special-shop",
+          "title": "special-shop.yml",
+          "file": "config/special-shop.md"
+        },
+        {
+          "id": "config-cosmetics",
+          "title": "cosmetics.yml",
+          "file": "config/cosmetics.md"
+        },
+        {
+          "id": "config-trade",
+          "title": "trade.yml",
+          "file": "config/trade.md"
+        }
+      ]
+    }
+  ]
+}
