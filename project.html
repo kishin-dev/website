@@ -8,31 +8,15 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
 </head>
-<body data-page="project">
-<div class="bg" aria-hidden="true"><div class="bg-glow"></div><div class="bg-waves"></div></div>
-
-<header class="nav">
-  <a class="logo" href="./"><span class="kanji">鬼神</span> KISHIN</a>
-  <nav class="links">
-    <a href="./#projects">Projects</a>
-    <a href="./#about">About</a>
-  </nav>
-  <a class="btn primary small" data-discord href="#" target="_blank" rel="noopener">Join Discord</a>
-</header>
-
-<main id="project"></main>
-
-<footer class="footer">
-  <p><span class="kanji">鬼神</span> KISHIN <span class="dim">· <span id="year"></span></span></p>
-  <p><a data-discord href="#" target="_blank" rel="noopener">Discord</a></p>
-  <p class="fine">Not affiliated with or endorsed by Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
-</footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="assets/projects.js"></script>
-<script src="assets/site.js"></script>
+<body data-page="works" class="grain overflow-x-hidden">
+<div id="site-header"></div>
+<main id="project" class="min-h-[70vh]"></main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/project.js"></script>
 </body>
 </html>
