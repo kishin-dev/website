@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../*.html";
+@source "../assets/js/*.js";
+
+@theme {
+  --color-ink: #0B0809;
+  --color-coal: #120D0F;
+  --color-panel: #171013;
+  --color-crimson: #D62839;
+  --color-ember: #FF5A6A;
+  --color-blood: #8E1522;
+  --color-bone: #F2ECEC;
+  --color-ash: #A89FA1;
+  --color-gold: #FFD166;
+  --font-display: "Bebas Neue", Impact, sans-serif;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-kanji: "Noto Serif JP", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --animate-shimmer: shimmer 9s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes shimmer { to { background-position: -300% 0; } }
+@keyframes float { 50% { transform: translateY(-14px); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes pulse-glow { 50% { opacity: .55; filter: blur(70px); } }
+@keyframes spin-slow { to { --angle: 360deg; } }
+@keyframes flicker { 0%, 100% { opacity: 1; } 47% { opacity: 1; } 48% { opacity: .55; } 49% { opacity: 1; } 72% { opacity: .8; } 73% { opacity: 1; } }
+
+@property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ink text-bone font-sans antialiased; }
+  ::selection { @apply bg-crimson text-white; }
+}
+
+@layer components {
+  /* film grain over everything */
+  .grain::after {
+    content: ""; position: fixed; inset: -50%; z-index: 60; pointer-events: none; opacity: .06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1.2s steps(4) infinite;
+  }
+  @keyframes grain { 25% { transform: translate(-3%, 2%); } 50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } }
+
+  /* seigaiha wave pattern */
+  .waves {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30'%3E%3Cg fill='none' stroke='%23FF5A6A' stroke-width='1.2'%3E%3Ccircle cx='30' cy='30' r='28'/%3E%3Ccircle cx='30' cy='30' r='21'/%3E%3Ccircle cx='30' cy='30' r='14'/%3E%3Ccircle cx='0' cy='15' r='28'/%3E%3Ccircle cx='0' cy='15' r='21'/%3E%3Ccircle cx='0' cy='15' r='14'/%3E%3Ccircle cx='60' cy='15' r='28'/%3E%3Ccircle cx='60' cy='15' r='21'/%3E%3Ccircle cx='60' cy='15' r='14'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* shimmering gradient text */
+  .text-blade {
+    background: linear-gradient(90deg, var(--color-crimson), var(--color-ember), #FFE3E6, var(--color-ember), var(--color-crimson));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 9s linear infinite;
+  }
+
+  /* rotating light beam around a border */
+  .beam { position: relative; isolation: isolate; }
+  .beam::before {
+    content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1; padding: 1px;
+    background: conic-gradient(from var(--angle), transparent 0 70%, var(--color-ember) 82%, #fff 86%, var(--color-crimson) 90%, transparent 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: spin-slow 5s linear infinite;
+  }
+
+  /* spotlight that follows the mouse (set --x/--y from JS) */
+  .spotlight { position: relative; overflow: hidden; }
+  .spotlight::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgba(255, 90, 106, .16), transparent 45%);
+  }
+  .spotlight:hover::after { opacity: 1; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .flicker { animation: flicker 6s infinite; }
+
+  /* docs article (on top of @tailwindcss/typography) */
+  .doc {
+    @apply prose prose-invert max-w-none
+      prose-headings:font-semibold prose-headings:scroll-mt-28
+      prose-h1:font-display prose-h1:font-normal prose-h1:text-6xl prose-h1:tracking-wide prose-h1:mb-4
+      prose-h2:text-2xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-2
+      prose-a:text-ember prose-a:no-underline hover:prose-a:underline
+      prose-code:text-[#FFC7CD] prose-code:bg-crimson/15 prose-code:rounded-md prose-code:px-1.5 prose-code:py-0.5 prose-code:font-medium
+      prose-code:before:content-none prose-code:after:content-none
+      prose-pre:bg-[#0E090B] prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
+      prose-th:text-bone prose-td:align-top
+      prose-strong:text-bone prose-li:marker:text-ember
+      prose-blockquote:border-l-crimson prose-blockquote:bg-crimson/10 prose-blockquote:rounded-r-xl prose-blockquote:py-1 prose-blockquote:not-italic prose-blockquote:text-bone/90;
+  }
+  .doc pre code { @apply bg-transparent p-0 text-[13px] leading-relaxed text-bone/90; }
+  .doc table { @apply block overflow-x-auto text-sm; }
+  .doc td code { @apply whitespace-nowrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* highlight.js: use our code block background */
+.hljs { background: transparent !important; }
