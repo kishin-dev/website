@@ -4,7 +4,7 @@
 
 window.KISHIN = {
   discord: "https://discord.gg/9KhSzXzwx3",
-  github: "https://github.com/Kishin",
+  github: "https://github.com/kishin-dev",
 
   // The story on the home page, one chapter per entry (top to bottom).
   story: [
