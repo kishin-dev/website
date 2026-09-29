@@ -1,0 +1,16 @@
+{
+  "name": "kishin-website",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o assets/app.css --minify",
+    "watch": "tailwindcss -i src/input.css -o assets/app.css --watch",
+    "docs": "python3 tools/gen_core_docs.py ../Kishin/src/main/resources"
+  },
+  "devDependencies": {
+    "@highlightjs/cdn-assets": "^11.9.0",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.16",
+    "marked": "^12.0.2",
+    "tailwindcss": "^4.3.3"
+  }
+}
