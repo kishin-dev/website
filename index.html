@@ -4,63 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kishin</title>
-<meta name="description" content="Kishin - Minecraft servers, plugins and tools.">
+<meta name="description" content="Kishin - Minecraft servers, plugins and tools, with a story behind every one of them.">
 <meta name="theme-color" content="#0B0809">
 <meta property="og:title" content="Kishin">
-<meta property="og:description" content="Minecraft servers, plugins and tools - built with care.">
+<meta property="og:description" content="Every legend starts on a floating island.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
 </head>
-<body data-page="home">
-<div class="bg" aria-hidden="true"><div class="bg-glow"></div><div class="bg-waves"></div></div>
-
-<header class="nav">
-  <a class="logo" href="./"><span class="kanji">鬼神</span> KISHIN</a>
-  <nav class="links">
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-  </nav>
-  <a class="btn primary small" data-discord href="#" target="_blank" rel="noopener">Join Discord</a>
-</header>
+<body data-page="home" class="grain overflow-x-hidden">
+<div id="site-header"></div>
 
 <main>
-  <section class="hero">
-    <div class="hero-mark" aria-hidden="true">鬼神</div>
-    <h1 class="title">KISHIN</h1>
-    <p class="lead" id="tagline"></p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#projects">Explore projects</a>
-      <a class="btn ghost" data-discord href="#" target="_blank" rel="noopener">Discord</a>
+  <!-- ============ HERO ============ -->
+  <section class="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden pt-16">
+    <div class="waves absolute inset-0 -z-20 opacity-[.07] [mask-image:radial-gradient(ellipse_at_center,#000_20%,transparent_75%)]"></div>
+    <div class="absolute left-1/2 top-1/3 -z-20 size-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/30 blur-[120px] animate-pulse-glow"></div>
+    <div class="absolute -bottom-40 -left-40 -z-20 size-[30rem] rounded-full bg-blood/40 blur-[120px]"></div>
+    <canvas id="embers" class="absolute inset-0 -z-10 size-full"></canvas>
+
+    <div class="pointer-events-none absolute inset-0 -z-10 grid place-items-center">
+      <span class="flicker select-none font-kanji text-[clamp(14rem,42vw,34rem)] font-black leading-none text-crimson/[.09] [text-shadow:0_0_120px_rgba(214,40,57,.35)]">鬼神</span>
+    </div>
+
+    <div class="mx-auto max-w-5xl px-4 text-center">
+      <p class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.03] px-4 py-1.5 text-[10px] font-bold uppercase tracking-[.2em] sm:gap-3 sm:text-xs sm:tracking-[.35em] text-ash backdrop-blur">
+        <span class="text-ember">✦</span> Servers · Plugins · Tools <span class="text-ember">✦</span>
+      </p>
+      <h1 class="reveal mt-6 font-display text-[clamp(5.5rem,20vw,15rem)] leading-[.82] tracking-[.06em] text-blade drop-shadow-[0_8px_0_#3a0610]">KISHIN</h1>
+      <p class="reveal mx-auto mt-6 max-w-xl text-lg text-ash sm:text-xl">Every legend starts on a floating island.<br><span class="text-bone">This is the story of ours.</span></p>
+      <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a href="#story" class="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-crimson px-6 py-3.5 font-bold text-white shadow-[0_10px_40px_-8px] shadow-crimson/60 transition hover:bg-ember">
+          <span class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-full"></span>
+          Begin the story
+          <svg class="size-4 transition group-hover:translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a href="docs.html" class="rounded-xl border border-white/10 bg-white/[.03] px-6 py-3.5 font-bold text-bone backdrop-blur transition hover:border-crimson/60 hover:bg-crimson/10">Read the docs</a>
+      </div>
+    </div>
+
+    <a href="#story" aria-label="Scroll down" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-ash/60 transition hover:text-ember">
+      <span class="block h-10 w-6 rounded-full border-2 border-current p-1"><span class="mx-auto block h-2 w-1 animate-bounce rounded-full bg-current"></span></span>
+    </a>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="relative overflow-hidden border-y border-white/5 bg-coal/80 py-4 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+    <div id="marquee" class="flex w-max animate-marquee gap-10 whitespace-nowrap font-display text-2xl tracking-[.2em] text-ash/70"></div>
+  </div>
+
+  <!-- ============ STORY ============ -->
+  <section id="story" class="relative mx-auto max-w-6xl scroll-mt-16 px-4 py-28 sm:px-6">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-xs font-bold uppercase tracking-[.35em] text-ember">The Story</p>
+      <h2 class="mt-3 font-display text-6xl tracking-wide sm:text-7xl">From one block of dirt</h2>
+      <p class="mt-4 text-ash">How a single Skyblock island turned into a home for everything we build.</p>
+    </div>
+
+    <div class="relative mt-20">
+      <!-- the timeline line, filled as you scroll -->
+      <div class="absolute bottom-0 left-6 top-0 w-px bg-white/10 md:left-1/2 md:-translate-x-1/2">
+        <div id="storyLine" class="h-0 w-full bg-gradient-to-b from-ember via-crimson to-blood shadow-[0_0_20px] shadow-crimson"></div>
+      </div>
+      <ol id="chapters" class="space-y-16 md:space-y-28"></ol>
     </div>
   </section>
 
-  <section class="section" id="featured"></section>
-
-  <section class="section" id="projects">
-    <div class="section-head">
-      <h2><span class="star">✦</span> Projects</h2>
-      <div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+  <!-- ============ WORKS ============ -->
+  <section id="works" class="relative scroll-mt-16 border-t border-white/5 bg-gradient-to-b from-coal/40 to-transparent py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[.35em] text-ember">The Works</p>
+          <h2 class="mt-3 font-display text-6xl tracking-wide sm:text-7xl">Projects</h2>
+        </div>
+        <div id="filters" class="flex flex-wrap gap-2"></div>
+      </div>
+      <div id="grid" class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
     </div>
-    <div class="grid" id="grid"></div>
   </section>
 
-  <section class="section about" id="about">
-    <div class="section-head"><h2><span class="star">✦</span> About</h2></div>
-    <div class="about-body" id="aboutBody"></div>
+  <!-- ============ DOCS ============ -->
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+    <div class="reveal beam spotlight grid items-center gap-10 overflow-hidden rounded-3xl bg-panel p-8 sm:p-12 lg:grid-cols-2">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[.35em] text-ember">Documentation</p>
+        <h2 class="mt-3 font-display text-5xl tracking-wide sm:text-6xl">Every project, explained</h2>
+        <p class="mt-4 max-w-md text-ash">Installation, commands, permissions and every config file - written for server owners, not just developers.</p>
+        <a href="docs.html" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-crimson px-6 py-3.5 font-bold text-white shadow-lg shadow-crimson/40 transition hover:bg-ember">Open the docs →</a>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-ink/80 font-mono text-[13px] shadow-2xl shadow-black/60">
+        <div class="flex items-center gap-2 border-b border-white/5 px-4 py-3">
+          <span class="size-3 rounded-full bg-crimson/80"></span><span class="size-3 rounded-full bg-gold/70"></span><span class="size-3 rounded-full bg-emerald-400/70"></span>
+          <span class="ml-3 text-xs text-ash">plugins/Kishin/pets.yml</span>
+        </div>
+        <pre class="overflow-x-auto p-5 leading-relaxed text-bone/85"><span class="text-ash"># Summon slots by rank</span>
+<span class="text-ember">slots</span>:
+  <span class="text-ember">KAPPA</span>: <span class="text-gold">2</span>
+  <span class="text-ember">KITSUNE</span>: <span class="text-gold">4</span>
+  <span class="text-ember">KISHIN</span>: <span class="text-gold">5</span>
+
+<span class="text-ember">rarities</span>:
+  <span class="text-ember">legendary</span>:
+    <span class="text-ember">max-level</span>: <span class="text-gold">60</span>
+    <span class="text-ember">merge-into</span>: <span class="text-emerald-300">""</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE REALM (server) ============ -->
+  <section id="realm" class="relative scroll-mt-16 py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="reveal relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-crimson/20 via-panel to-ink p-8 sm:p-12">
+        <div class="waves pointer-events-none absolute inset-0 opacity-[.06]"></div>
+        <div class="pointer-events-none absolute -right-10 -top-16 select-none font-kanji text-[18rem] font-black leading-none text-crimson/10">鬼</div>
+        <div class="relative grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[.35em] text-ember">The Realm</p>
+            <h2 class="mt-3 font-display text-5xl tracking-wide sm:text-6xl">Kishin Skyblock</h2>
+            <p class="mt-4 max-w-xl text-ash">Where the story is played. Every Kishin project is born and tested on our own Skyblock server - yokai pets, world bosses and islands that grow into empires.</p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <button type="button" id="realmCopy" class="rounded-xl bg-crimson px-5 py-3 font-bold text-white shadow-lg shadow-crimson/40 transition hover:bg-ember">Copy server IP</button>
+              <a href="project.html?p=skyblock" class="rounded-xl border border-white/10 bg-white/[.03] px-5 py-3 font-bold transition hover:border-crimson/60">About the server</a>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-ink/70 p-6 backdrop-blur">
+            <p class="text-xs font-bold uppercase tracking-[.25em] text-ash">Server status</p>
+            <div id="realmStatus" class="mt-4 flex flex-wrap items-center gap-3"></div>
+            <p class="mt-5 text-xs text-ash">Minecraft Java Edition 1.21</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer class="footer">
-  <p><span class="kanji">鬼神</span> KISHIN <span class="dim">· <span id="year"></span></span></p>
-  <p><a data-discord href="#" target="_blank" rel="noopener">Discord</a></p>
-  <p class="fine">Not affiliated with or endorsed by Mojang Studios or Microsoft. Minecraft is a trademark of Mojang Studios.</p>
-</footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="assets/projects.js"></script>
-<script src="assets/site.js"></script>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/home.js"></script>
 </body>
 </html>
