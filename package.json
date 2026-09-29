@@ -4,7 +4,8 @@
   "scripts": {
     "build": "tailwindcss -i src/input.css -o assets/app.css --minify",
     "watch": "tailwindcss -i src/input.css -o assets/app.css --watch",
-    "docs": "python3 tools/gen_core_docs.py ../Kishin/src/main/resources"
+    "docs": "python3 tools/gen_core_docs.py ../Kishin/src/main/resources",
+    "build:site": "node tools/build-site.mjs"
   },
   "devDependencies": {
     "@highlightjs/cdn-assets": "^11.9.0",
