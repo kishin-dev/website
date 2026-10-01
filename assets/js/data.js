@@ -76,7 +76,7 @@ window.KISHIN = {
       status: "beta",
       docs: false,
       repo: "",
-      server: "5.9.95.62:25585",
+      server: "eu.kishin.lol",
       summary: "Our Minecraft Skyblock server - the realm where every Kishin project is born and tested.",
       story: [
         "Kishin Skyblock is where the story began: a Skyblock server set in a world of Japanese folklore. Players climb from Yurei, a wandering ghost, all the way to Kishin, the demon god.",
