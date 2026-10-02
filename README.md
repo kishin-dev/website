@@ -10,7 +10,7 @@ docs.html             documentation: docs.html?p=<id>&page=<page>
 assets/js/data.js     <- the story chapters and every project (edit this)
 assets/app.css        built Tailwind CSS (generated - don't edit by hand)
 src/input.css         Tailwind source: theme colours, fonts, effects
-docs/<project>/       Markdown docs + _index.json (sidebar order)
+docs/<project>/       Markdown docs + _index.json (sidebar order): core, keyshin
 tools/gen_core_docs.py  generates the Kishin Core reference pages from the plugin
 ```
 
