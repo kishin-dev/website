@@ -66,7 +66,7 @@
           ${link("./#story", "Story", "story")}
           ${link("./#works", "Projects", "works")}
           ${link("docs.html", "Docs", "docs")}
-          ${link("./#realm", "The Realm", "realm")}
+          ${link("./#keyshin", "KeyShin", "keyshin")}${link("./#realm", "The Realm", "realm")}
         </nav>
         <div class="ml-auto flex items-center gap-2">
           ${K.github ? `<a href="${esc(K.github)}" target="_blank" rel="noopener" aria-label="GitHub" class="grid size-9 place-items-center rounded-lg text-ash transition hover:bg-white/5 hover:text-bone">
@@ -78,7 +78,7 @@
         </div>
       </div>
       <nav id="mobileNav" class="hidden border-t border-white/5 px-4 pb-4 md:hidden">
-        <div class="flex flex-col pt-2">${link("./#story", "Story", "story")}${link("./#works", "Projects", "works")}${link("docs.html", "Docs", "docs")}${link("./#realm", "The Realm", "realm")}</div>
+        <div class="flex flex-col pt-2">${link("./#story", "Story", "story")}${link("./#works", "Projects", "works")}${link("docs.html", "Docs", "docs")}${link("./#keyshin", "KeyShin", "keyshin")}${link("./#realm", "The Realm", "realm")}</div>
       </nav>
     </header>`;
   }
