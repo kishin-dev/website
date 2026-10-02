@@ -23,6 +23,14 @@
         { "id": "security", "title": "Security", "file": "security.md" },
         { "id": "development", "title": "Local development", "file": "development.md" }
       ]
+    },
+    {
+      "title": "Library",
+      "pages": [
+        { "id": "java-client", "title": "Java client", "file": "java-client.md" },
+        { "id": "java-api", "title": "Java API reference", "file": "java-api.md" },
+        { "id": "java-guides", "title": "Java guides", "file": "java-guides.md" }
+      ]
     }
   ]
 }
