@@ -1,0 +1,28 @@
+{
+  "title": "KeyShin",
+  "sections": [
+    {
+      "title": "Getting started",
+      "pages": [
+        { "id": "introduction", "title": "Introduction", "file": "introduction.md" },
+        { "id": "setup", "title": "Setup", "file": "setup.md" },
+        { "id": "dashboard", "title": "Using the dashboard", "file": "dashboard.md" }
+      ]
+    },
+    {
+      "title": "Integrating",
+      "pages": [
+        { "id": "validation", "title": "Validation API", "file": "validation.md" },
+        { "id": "java-example", "title": "Java plugin example", "file": "java-example.md" }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        { "id": "admin-api", "title": "Admin API", "file": "admin-api.md" },
+        { "id": "security", "title": "Security", "file": "security.md" },
+        { "id": "development", "title": "Local development", "file": "development.md" }
+      ]
+    }
+  ]
+}
